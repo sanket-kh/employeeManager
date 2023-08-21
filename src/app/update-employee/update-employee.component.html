@@ -1,0 +1,33 @@
+
+<div class="col-md-8 offset-3">
+    <h3>Update Employee</h3>
+    <form [formGroup]="updateEmpFrom">
+
+        <label for="fname" class="form-label">First Name:</label>
+        <input type="text" class="form-control" formControlName="firstName" id="fname">
+
+
+
+        <label for="lname" class="form-label">Last Name:</label>
+        <input type="text" class="form-control" formControlName="lastName" id="lname">
+
+
+
+        <label for="email" class="form-label">Email:</label>
+        <input type="text" class="form-control" formControlName="email" name="email" id="email">
+
+
+
+        <label for="jobTitle" class="form-label">Job Title:</label>
+        <input type="text" class="form-control" formControlName="jobTitle" name="jobTitle" id="jobTitle">
+
+
+
+        <label for="phone" class="form-label">Phone:</label>
+        <input type="number" class="form-control" formControlName="phone" name="phone" id="phone" maxlength="10">
+
+        <button type="button"  class=" btn btn-primary" (click)="onSubmit()" >Update</button>
+<!--        <button (click)="resetForm()" class=" btn btn-primary">Reset</button>-->
+
+    </form>
+</div>
