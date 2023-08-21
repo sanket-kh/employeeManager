@@ -2,8 +2,6 @@ import {Component} from '@angular/core';
 import {Employee} from "../Interface/employee";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EmployeeService} from "../employee.service";
-import {logMessages} from "@angular-devkit/build-angular/src/tools/esbuild/utils";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {Router} from "@angular/router";
 
 @Component({
