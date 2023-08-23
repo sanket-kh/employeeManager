@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Employee} from "../Interface/employee";
-import {EmployeeService} from "../employee.service";
+import {EmployeeService} from "../service/employee.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -10,9 +10,10 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./update-employee.component.css']
 })
 export class UpdateEmployeeComponent {
-  updateEmpFrom!: FormGroup;
+  updateEmpForm!: FormGroup;
   employee!: Employee;
   id!: number;
+  private NameRegex = '^[A-Z][a-zA-Z]{2,10}$'
 
   constructor(private fb: FormBuilder,
               private employeeService: EmployeeService,
@@ -22,12 +23,12 @@ export class UpdateEmployeeComponent {
 
 
   ngOnInit() {
-    this.updateEmpFrom = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.email],
+    this.updateEmpForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.pattern(this.NameRegex)]],
+      lastName: ['', [Validators.required, Validators.pattern(this.NameRegex)]],
+      email: ['', [Validators.email, Validators.required]],
       jobTitle: ['', Validators.required],
-      phone: ['', Validators.required]
+      phone: ['', [Validators.required, Validators.pattern('^9[0-9]{9}$')]]
     })
     this.id = this.route.snapshot.params['id']
     console.log(this.id)
@@ -49,7 +50,7 @@ export class UpdateEmployeeComponent {
 
 
   onSubmit() {
-    this.employee = this.updateEmpFrom.value
+    this.employee = this.updateEmpForm.value
     this.employeeService.updateEmployee(this.employee, this.id).subscribe({
       next: data => this.employee = data.body,
       error: err => console.log(err),
@@ -59,7 +60,7 @@ export class UpdateEmployeeComponent {
   }
 
   setForm() {
-    this.updateEmpFrom.setValue({
+    this.updateEmpForm.setValue({
       firstName: this.employee.firstName,
       lastName: this.employee.lastName,
       email: this.employee.email,
@@ -69,6 +70,6 @@ export class UpdateEmployeeComponent {
   }
 
   resetForm() {
-    this.updateEmpFrom.reset()
+    this.updateEmpForm.reset()
   }
 }

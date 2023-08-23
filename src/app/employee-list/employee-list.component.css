@@ -1,5 +1,3 @@
-a{
-  color: black;
-  text-underline: none;
-  text-decoration: none;
+.delete {
+  padding-left: 10px;
 }

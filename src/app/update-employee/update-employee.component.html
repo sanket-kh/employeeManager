@@ -1,33 +1,39 @@
-
 <div class="col-md-8 offset-3">
-    <h3>Update Employee</h3>
-    <form [formGroup]="updateEmpFrom">
+  <h3>Update Employee</h3>
+  <form [formGroup]="updateEmpForm">
 
-        <label for="fname" class="form-label">First Name:</label>
-        <input type="text" class="form-control" formControlName="firstName" id="fname">
-
-
-
-        <label for="lname" class="form-label">Last Name:</label>
-        <input type="text" class="form-control" formControlName="lastName" id="lname">
+    <label class="form-label" for="fname">First Name:</label>
+    <input class="form-control" formControlName="firstName" id="fname" type="text">
+    <small *ngIf="updateEmpForm.get('firstName')?.invalid &&
+       updateEmpForm.get('firstName')?.touched">
+      Enter a valid name with first letter capital <br></small>
 
 
-
-        <label for="email" class="form-label">Email:</label>
-        <input type="text" class="form-control" formControlName="email" name="email" id="email">
-
-
-
-        <label for="jobTitle" class="form-label">Job Title:</label>
-        <input type="text" class="form-control" formControlName="jobTitle" name="jobTitle" id="jobTitle">
+    <label class="form-label" for="lname">Last Name:</label>
+    <input class="form-control" formControlName="lastName" id="lname" type="text">
+    <small *ngIf="updateEmpForm.get('lastName')?.invalid &&
+       updateEmpForm.get('lastName')?.touched ">Enter a valid last name with first letter capital <br></small>
 
 
+    <label class="form-label" for="email">Email:</label>
+    <input class="form-control" formControlName="email" id="email" name="email" type="text">
+    <small *ngIf="updateEmpForm.get('email')?.invalid &&
+       updateEmpForm.get('email')?.touched ">Enter a valid email (eg: example@gmail.com) <br></small>
 
-        <label for="phone" class="form-label">Phone:</label>
-        <input type="number" class="form-control" formControlName="phone" name="phone" id="phone" maxlength="10">
 
-        <button type="button"  class=" btn btn-primary" (click)="onSubmit()" >Update</button>
-<!--        <button (click)="resetForm()" class=" btn btn-primary">Reset</button>-->
+    <label class="form-label" for="jobTitle">Job Title:</label>
+    <input class="form-control" formControlName="jobTitle" id="jobTitle" name="jobTitle" type="text">
+    <small *ngIf="updateEmpForm.get('jobTitle')?.invalid &&
+       updateEmpForm.get('jobTitle')?.touched ">This field is required <br></small>
 
-    </form>
+
+    <label class="form-label" for="phone">Phone:</label>
+    <input class="form-control" formControlName="phone" id="phone" name="phone" type="number">
+    <small *ngIf="updateEmpForm.get('phone')?.invalid &&
+       updateEmpForm.get('phone')?.touched ">Enter a valid phone number (eg:9XXXXXXXXX)<br></small>
+
+    <button (click)="onSubmit()" class=" btn btn-primary" type="button">Update</button>
+    <!--        <button (click)="resetForm()" class=" btn btn-primary">Reset</button>-->
+
+  </form>
 </div>
