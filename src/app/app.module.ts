@@ -12,28 +12,28 @@ import {ErrorComponent} from './error/error.component';
 import {InterceptorInterceptor} from "./service/interceptor.interceptor";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EmployeeListComponent,
-    CreateEmployeeComponent,
-    UpdateEmployeeComponent,
-    ErrorComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:InterceptorInterceptor,
-      multi:true
-    }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        EmployeeListComponent,
+        CreateEmployeeComponent,
+        UpdateEmployeeComponent,
+        ErrorComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InterceptorInterceptor,
+            multi: true
+        }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

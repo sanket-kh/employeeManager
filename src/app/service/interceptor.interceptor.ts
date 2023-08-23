@@ -5,15 +5,16 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class InterceptorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+    constructor() {
+    }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log('inside interceptor')
-    let modifiedReq = request.clone({
-      headers:request.headers.append('new-header', 'hi'),
-     // params: request.params.append('hi', 'hello'),
-     // url: 'http://localhost/asdasdsa'
-    })
-    return next.handle(modifiedReq);
-  }
+    intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+        console.log('inside interceptor')
+        let modifiedReq = request.clone({
+            headers: request.headers.append('new-header', 'hi'),
+            // params: request.params.append('hi', 'hello'),
+            // url: 'http://localhost/asdasdsa'
+        })
+        return next.handle(modifiedReq);
+    }
 }

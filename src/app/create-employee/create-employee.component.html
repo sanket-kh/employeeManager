@@ -1,40 +1,40 @@
 <div class="col-md-8 offset-3">
-  <h3>Add Employee</h3>
-  <form [formGroup]="addEmpForm">
+    <h3>Add Employee</h3>
+    <form [formGroup]="addEmpForm">
 
-    <label class="form-label" for="fname">First Name:</label>
-    <input class="form-control" formControlName="firstName" id="fname" type="text">
-    <small *ngIf="addEmpForm.get('firstName')?.invalid &&
+        <label class="form-label" for="fname">First Name:</label>
+        <input class="form-control" formControlName="firstName" id="fname" type="text">
+        <small *ngIf="addEmpForm.get('firstName')?.invalid &&
        addEmpForm.get('firstName')?.touched">
-      Enter a valid name with first letter capital <br></small>
+            Enter a valid name with first letter capital <br></small>
 
 
-    <label class="form-label" for="lname">Last Name:</label>
-    <input class="form-control" formControlName="lastName" id="lname" type="text">
-    <small *ngIf="addEmpForm.get('lastName')?.invalid &&
+        <label class="form-label" for="lname">Last Name:</label>
+        <input class="form-control" formControlName="lastName" id="lname" type="text">
+        <small *ngIf="addEmpForm.get('lastName')?.invalid &&
        addEmpForm.get('lastName')?.touched ">Enter a valid last name with first letter capital <br></small>
 
 
-    <label class="form-label" for="email">Email:</label>
-    <input class="form-control" formControlName="email" id="email" name="email" type="text">
-    <small *ngIf="addEmpForm.get('email')?.invalid &&
+        <label class="form-label" for="email">Email:</label>
+        <input class="form-control" formControlName="email" id="email" name="email" type="text">
+        <small *ngIf="addEmpForm.get('email')?.invalid &&
        addEmpForm.get('email')?.touched ">Enter a valid email (eg: example@gmail.com) <br></small>
 
 
-    <label class="form-label" for="jobTitle">Job Title:</label>
-    <input class="form-control" formControlName="jobTitle" id="jobTitle" name="jobTitle" type="text">
-    <small *ngIf="addEmpForm.get('jobTitle')?.invalid &&
+        <label class="form-label" for="jobTitle">Job Title:</label>
+        <input class="form-control" formControlName="jobTitle" id="jobTitle" name="jobTitle" type="text">
+        <small *ngIf="addEmpForm.get('jobTitle')?.invalid &&
        addEmpForm.get('jobTitle')?.touched ">This field is required <br></small>
 
 
-    <label class="form-label" for="phone">Phone:</label>
-    <input (input)="checkLength($event)" class="form-control" formControlName="phone" id="phone" name="phone"
-           type="number">
-    <small *ngIf="addEmpForm.get('phone')?.invalid &&
+        <label class="form-label" for="phone">Phone:</label>
+        <input (input)="checkLength($event)" class="form-control" formControlName="phone" id="phone" name="phone"
+               type="number">
+        <small *ngIf="addEmpForm.get('phone')?.invalid &&
        addEmpForm.get('phone')?.touched ">Enter a valid phone number (eg:9XXXXXXXXX)<br></small>
 
-    <button (click)="onSubmit()" class=" btn btn-primary">Add</button>
-    <button (click)="resetForm()" class=" btn btn-primary">Reset</button>
+        <button (click)="onSubmit()" class=" btn btn-primary">Add</button>
+        <button (click)="resetForm()" class=" btn btn-primary">Reset</button>
 
-  </form>
+    </form>
 </div>

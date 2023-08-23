@@ -5,37 +5,37 @@ import {Response} from "../Interface/response";
 import {Employee} from "../Interface/employee";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class EmployeeService {
-  private baseUrl = "http://localhost:8080/api/v1/employees"
+    private baseUrl = "http://localhost:8080/api/v1/employees"
 
-  constructor(private http: HttpClient) {
-  }
+    constructor(private http: HttpClient) {
+    }
 
-  getEmployeeList(): Observable<Response> {
-    return this.http.get<Response>(this.baseUrl, {
-      headers: new HttpHeaders({
-        'custom-header':'sanket '
-      })
-    })
-  }
+    getEmployeeList(): Observable<Response> {
+        return this.http.get<Response>(this.baseUrl, {
+            headers: new HttpHeaders({
+                'custom-header': 'sanket '
+            })
+        })
+    }
 
-  createEmployee(employee: Employee): Observable<any> {
-    return this.http.post(this.baseUrl, employee)
-  }
+    createEmployee(employee: Employee): Observable<any> {
+        return this.http.post(this.baseUrl, employee)
+    }
 
-  updateEmployee(employee: Employee, id: number): Observable<Response> {
-    return this.http.put<Response>(`${this.baseUrl}/${id}`, employee)
+    updateEmployee(employee: Employee, id: number): Observable<Response> {
+        return this.http.put<Response>(`${this.baseUrl}/${id}`, employee)
 
-  }
+    }
 
-  getEmployeeById(id: number): Observable<Response> {
-    return this.http.get<Response>(`${this.baseUrl}/${id}`)
-  }
+    getEmployeeById(id: number): Observable<Response> {
+        return this.http.get<Response>(`${this.baseUrl}/${id}`)
+    }
 
-  deleteEmployeeById(id: number): Observable<Response> {
-    return this.http.delete<Response>(`${this.baseUrl}/${id}`);
-  }
+    deleteEmployeeById(id: number): Observable<Response> {
+        return this.http.delete<Response>(`${this.baseUrl}/${id}`);
+    }
 
 }

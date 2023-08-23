@@ -6,16 +6,16 @@ import {UpdateEmployeeComponent} from "./update-employee/update-employee.compone
 import {ErrorComponent} from "./error/error.component";
 
 const routes: Routes = [
-  {path: 'employees', component: EmployeeListComponent},
-  {path: '', redirectTo: 'employees', pathMatch: 'full'},
-  {path: 'add-employee', component: CreateEmployeeComponent},
-  {path: 'update-employee/:id', component: UpdateEmployeeComponent},
-  {path:'**', component:ErrorComponent}
+    {path: 'employees', component: EmployeeListComponent},
+    {path: '', redirectTo: 'employees', pathMatch: 'full'},
+    {path: 'add-employee', component: CreateEmployeeComponent},
+    {path: 'update-employee/:id', component: UpdateEmployeeComponent},
+    {path: '**', component: ErrorComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule {
 }
